@@ -1,0 +1,42 @@
+# paths
+# ---------------------------------
+alias atafs='cd /Users/americotomasdeagrelafernandes/Repository/atafs'
+
+# search
+# ---------------------------------
+alias ll='ls -la'
+
+# run in terminal
+# -> perl -e 'my $var = 1; print "Hello world $var\n"'
+# ---------------------------------
+alias pe='perl -e '
+
+# vm
+# ---------------------------------
+alias startvm='VBoxManage startvm americo.dev --type headless'
+alias stopvm='VBoxManage controlvm americo.dev poweroff'
+
+# -> git basics
+# -> gc <branch>
+# -> gcb <branch>
+# -> gdt <sha1_left> <sha2_right&&bottom>
+# ---------------------------------
+alias gc='git checkout '
+alias gb='git branch'
+alias gac='git add .; git commit -m'
+alias gca='git commit --amend'
+alias gpo='git remote -v; git push origin '
+alias gmt='git mergetool'
+alias gdt='git difftool '
+alias gri='git rebase -i '
+alias grd='git rebase develop'
+
+alias gk='gitk &'
+
+# -> git get changes from development
+# ---------------------------------
+alias ggchanges='git checkout develop; git fetch -p; git pull; git checkout -'
+
+# -> git set changes in development
+# ---------------------------------
+alias gpdevelop='git push origin HEAD:develop'

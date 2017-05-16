@@ -1,0 +1,39 @@
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# sm5
+alias sm5='cd /; cd media/sf_Repository/sm5/sitemaker'
+alias sm5db='cd /; cd media/sf_Repository/sm5/sitemaker/db/schema'
+alias sm5run='ant perl.deploy && service httpd restart'
+alias sm5test='cd modules/; find ../. -type d | grep -E '\''/t$'\'' | grep -vE '\''TheSchwartz|Domains|Model-|Sitemaker/'\'' | xargs -I{} sh -c '\''RED="\033[0;31m"; NC="\033[0m"; cd {}/..; echo -e "======== \033[0;31mNOW PROCESSING {}\033[0m 
+========"; prove -I /home/website2/modules/ -I t/lib t/'\''; cd -'
+
+# ant
+alias abc='ant build.conf'
+alias asr='service httpd restart'
+alias apd='ant perl.deploy'
+alias apt='ant perl.modules.test'
+alias adm='ant db.migrate.up'
+
+alias mf='cd /; cd media/sf_Repository/mf'
+alias runmf='ant devbuild && service httpd restart'
+
+alias jpg='. /opt/sybase/SYBASE.sh && /home/website2/support-scripts/job_ImageConvert.pl'
+
+alias tailog='tail -F /var/log/httpd/error_log'
+
+alias communities='cd /; cd home/communities'
+alias confsm5='cd /; cd home/website2/conf'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

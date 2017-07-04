@@ -2,33 +2,56 @@
 
 # User specific aliases and functions
 
+# unix
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ll='ls -la'
 
-# sm5
+# unix search
+# e.g find '*<file_name>'
+alias fn='find . -name '
+
+# paths
 alias sm5='cd /; cd media/sf_Repository/sm5/sitemaker'
+alias sm5perl='cd /; cd media/sf_Repository/sm5/sitemaker/perl'
+alias sm5prove='cd /; cd /usr/bin'
 alias sm5db='cd /; cd media/sf_Repository/sm5/sitemaker/db/schema'
-alias sm5run='ant perl.deploy && service httpd restart'
-alias sm5test='cd modules/; find ../. -type d | grep -E '\''/t$'\'' | grep -vE '\''TheSchwartz|Domains|Model-|Sitemaker/'\'' | xargs -I{} sh -c '\''RED="\033[0;31m"; NC="\033[0m"; cd {}/..; echo -e "======== \033[0;31mNOW PROCESSING {}\033[0m 
+alias sm5conf='cd /; cd home/website2/conf'
+alias communities='cd /; cd home/communities'
+
+# sm5 run
+alias sm5run='ant perl.deploy; systemctl restart httpd.service; tail -F /var/log/httpd/error_log'
+alias sm5test='cd modules/; find ../. -type d | grep -E '\''/t$'\'' | grep -vE '\''TheSchwartz|Domains|Model|Sitemaker/'\'' | xargs -I{} sh -c '\''RED="\033[0;31m"; NC="\033[0m"; cd {}/..; echo -e "======== \033[0;31mNOW PROCESSING {}\033[0m
 ========"; prove -I /home/website2/modules/ -I t/lib t/'\''; cd -'
+# in the perl file I can test a specific file like Sitemaker-DAO/t/IntercomServiceClient.t
+alias sm5test_p='prove.sh '
+
+# service
+alias sr='systemctl restart httpd.service'
 
 # ant
 alias abc='ant build.conf'
-alias asr='service httpd restart'
 alias apd='ant perl.deploy'
 alias apt='ant perl.modules.test'
 alias adm='ant db.migrate.up'
 
+# moonfruit
 alias mf='cd /; cd media/sf_Repository/mf'
 alias runmf='ant devbuild && service httpd restart'
 
-alias jpg='. /opt/sybase/SYBASE.sh && /home/website2/support-scripts/job_ImageConvert.pl'
+# sybase
+alias sy_sh='. /opt/sybase/SYBASE.sh'
+alias sy_run='cd /opt/sybase/ASE-15_0/install; ./RUN_SYBASE'
+alias sy_ser='ps fax | grep sybase'
+alias sy_isql='isql -Usa -Dsitemaker1 -P'
+alias sy_jpg='/home/website2/support-scripts/job_ImageConvert.pl'
 
+# puppet
+alias pu_run='puppet agent -t'
+
+# log
 alias tailog='tail -F /var/log/httpd/error_log'
-
-alias communities='cd /; cd home/communities'
-alias confsm5='cd /; cd home/website2/conf'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then

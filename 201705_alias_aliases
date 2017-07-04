@@ -1,37 +1,55 @@
 # paths
 # ---------------------------------
+alias sm5='cd /Users/americotomasdeagrelafernandes/Repository/sm5'
+alias cubic='cd /Users/americotomasdeagrelafernandes/Repository/sm-html5-editor'
+alias intercom='cd /Users/americotomasdeagrelafernandes/Repository/go/src/moonfruit.com/intercom-service'
 alias atafs='cd /Users/americotomasdeagrelafernandes/Repository/atafs'
+
+alias proxytest='curl http://10.60.34.50:8000/'
 
 # search
 # ---------------------------------
 alias ll='ls -la'
 
+
 # run in terminal
 # -> perl -e 'my $var = 1; print "Hello world $var\n"'
+# -> pum: update all perl modules
 # ---------------------------------
 alias pe='perl -e '
+alias pum='cpan-outdated -p | cpanm'
+
 
 # vm
+# -> creatvm </full/path/to/the/.vbox/file>
 # ---------------------------------
 alias startvm='VBoxManage startvm americo.dev --type headless'
 alias stopvm='VBoxManage controlvm americo.dev poweroff'
+alias registervm='VBoxManage registervm '
 
 # -> git basics
 # -> gc <branch>
 # -> gcb <branch>
 # -> gdt <sha1_left> <sha2_right&&bottom>
+# -> gbl <path-of-file> -L <line-number>
 # ---------------------------------
 alias gc='git checkout '
 alias gb='git branch'
 alias gac='git add .; git commit -m'
-alias gca='git commit --amend'
+alias gaca='git add .; git commit --amend'
 alias gpo='git remote -v; git push origin '
 alias gmt='git mergetool'
 alias gdt='git difftool '
 alias gri='git rebase -i '
 alias grd='git rebase develop'
+alias gbl='git blame '
 
 alias gk='gitk &'
+
+# -> git show the latest differences only with the names of the files
+# (avoid committing trash, spaces in classes, ...)
+# ---------------------------------
+alias gdn='git diff --name-only'
 
 # -> git get changes from development
 # ---------------------------------
